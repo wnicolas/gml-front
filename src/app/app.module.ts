@@ -13,8 +13,9 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 
 import { UpdateComponentComponent } from './components/client/update-component/update-component.component';
+import { GenericSearchWithFilterComponent } from './utils/generic-search-with-filter/generic-search-with-filter.component';
 @NgModule({
-  declarations: [AppComponent, UpdateComponentComponent],
+  declarations: [AppComponent, UpdateComponentComponent, GenericSearchWithFilterComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

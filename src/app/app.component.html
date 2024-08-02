@@ -29,6 +29,9 @@
         </button>
       </div>
       <div class="row">
+        <app-generic-search-with-filter (cleanEmitter)="manageCleanEmitter($event)" (searchedEmitter)="manageSearchedEmitter($event)" [fields]="camposFiltro" table="clients"></app-generic-search-with-filter>
+      </div>
+      <div class="row">
         <div class="col">
           <form [formGroup]="form">
             <mat-form-field class="example-full-width">

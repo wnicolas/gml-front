@@ -12,6 +12,36 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class AppComponent {
   form: FormGroup;
+  camposFiltro: any = [
+    {
+      name: 'sharedKey',
+      label: '',
+      type: 'text',
+      value: '',
+      placeholder: 'Shared Key',
+    },
+    {
+      name: 'businessId',
+      label: '',
+      type: 'text',
+      value: '',
+      placeholder: 'Business ID',
+    },
+    {
+      name: 'email',
+      label: '',
+      type: 'text',
+      value: '',
+      placeholder: 'Email',
+    },
+    {
+      name: 'phone',
+      label: '',
+      type: 'text',
+      value: '',
+      placeholder: 'Phone',
+    },
+  ];
   constructor(
     private fb: FormBuilder,
     private clientService: ClientService,
@@ -76,5 +106,11 @@ export class AppComponent {
       this.init();
       console.log('El diálogo se cerró');
     });
+  }
+  manageSearchedEmitter(event: Client[]) {
+    this.clients = event;
+  }
+  manageCleanEmitter(event: any) {
+    this.init();
   }
 }

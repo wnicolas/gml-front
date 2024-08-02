@@ -1,0 +1,33 @@
+<!-- dynamic-form.component.html -->
+<div class="m-3">
+    <form [formGroup]="form">
+      <div class="row">
+        <div class="col" *ngFor="let field of fields">
+          <label class="mx-2">{{ field.label }}</label>
+          <mat-form-field>
+            <input
+              class="placeholder-padding"
+              matInput
+              #input
+              [type]="field.type"
+              [placeholder]="field.placeholder"
+              [formControlName]="field.name"
+            />
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <button class="option-button mx-4" mat-flat-button (click)="search()">
+            Buscar
+          </button>
+        </div>
+        <div class="col">
+          <button class="option-button mx-4" mat-flat-button (click)="clean()">
+            Limpiar
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+  
