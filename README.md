@@ -1,27 +1,39 @@
-# GmlFront
+# README - Frontend del Proyecto
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.6.
+## Descripción del Proyecto
 
-## Development server
+Este proyecto es el resultado de la realización del front para la prueba técnica de GML Software. El frontend se comunica con el backend a través de API RESTful y proporciona una experiencia de usuario fluida.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Tecnologías Utilizadas
 
-## Code scaffolding
+- **Angular**: Framework para construir aplicaciones web dinámicas.
+- **Angular Material**: Biblioteca de componentes de UI para Angular.
+- **RxJS**: Biblioteca para programación reactiva usando Observables.
+- **Typescript**: Lenguaje de programación para desarrollo con Angular.
+- **Sass**: Preprocesador de CSS para estilos avanzados.
+- **Webpack**: Herramienta de empaquetado para el frontend.
+- **Jest / Karma**: Herramientas de prueba para Angular.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Funcionalidades Principales
 
-## Build
+1. **Interfaz de Usuario**:
+   - **Componentes**: Uso de Angular Material para una interfaz consistente y estilizada.
+   - **Formulario Reactivo**: Formularios con validación y manejo de estado reactivo.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+2. **Navegación**:
+   - **Rutas**: Configuración de rutas para navegar entre diferentes vistas de la aplicación.
+   - **Sidebar**: Menú lateral para navegación rápida entre secciones.
 
-## Running unit tests
+3. **Comunicación con el Backend**:
+   - **Servicios HTTP**: Consumo de API RESTful para obtener y enviar datos al backend.
+   - **Gestión de Estado**: Manejo del estado de la aplicación con servicios y observables.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+4. **Gestión de Datos**:
+   - **Formularios**: Implementación de formularios para CRUD (Crear, Leer, Actualizar, Eliminar) de datos.
+   - **Diálogos**: Uso de `MatDialog` para mostrar formularios y mensajes emergentes.
 
-## Running end-to-end tests
+## Instalación y Configuración
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+1. **Clonar el Repositorio**:
+   ```bash
+   git clone https://github.com/tu_usuario/tu_repositorio.git
