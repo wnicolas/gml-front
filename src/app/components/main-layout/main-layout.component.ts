@@ -14,6 +14,7 @@ import { UpdateComponentComponent } from '../client/update-component/update-comp
 })
 export class MainLayoutComponent implements OnInit {
   form: FormGroup;
+  advancedSearch:boolean=false;
   camposFiltro: any = [
     {
       name: 'sharedKey',

@@ -12,12 +12,13 @@
         Export
       </button>
     </div>
-    <button mat-button>
+    <button class="btn" mat-button (click)="advancedSearch = !advancedSearch">
       <mat-icon>search</mat-icon>
-      Advanced Search
+      <span *ngIf="advancedSearch; else normlaSearchText"> Normal Search </span>
+      <ng-template #normlaSearchText> Advanced Search </ng-template>
     </button>
   </div>
-  <div class="row">
+  <div class="row" *ngIf="advancedSearch; else normalSearch">
     <app-generic-search-with-filter
       (cleanEmitter)="manageCleanEmitter($event)"
       (searchedEmitter)="manageSearchedEmitter($event)"
@@ -25,25 +26,26 @@
       table="clients"
     ></app-generic-search-with-filter>
   </div>
-  <div class="row">
-    <div class="col">
-      <form [formGroup]="form">
-        <mat-form-field class="example-full-width">
-          <mat-label>First name</mat-label>
-          <input
-            matInput
-            placeholder="Enter shared key"
-            formControlName="sharedKey"
-          />
-        </mat-form-field>
-        <button mat-button (click)="search()">
-          <mat-icon>search</mat-icon>
-          Search
-        </button>
-      </form>
+  <ng-template #normalSearch>
+    <div class="row">
+      <div class="col">
+        <form [formGroup]="form">
+          <mat-form-field class="example-full-width">
+            <mat-label>First name</mat-label>
+            <input
+              matInput
+              placeholder="Enter shared key"
+              formControlName="sharedKey"
+            />
+          </mat-form-field>
+          <button mat-button (click)="search()">
+            <mat-icon>search</mat-icon>
+            Search
+          </button>
+        </form>
+      </div>
     </div>
-  </div>
-
+  </ng-template>
   <h3>Clients</h3>
   <table class="table">
     <thead>
