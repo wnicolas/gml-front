@@ -3,21 +3,36 @@ import { ClientService } from './client.service';
 import { Client } from './client.interface';
 import { MatDialog } from '@angular/material/dialog';
 import { UpdateComponentComponent } from './components/client/update-component/update-component.component';
-
+import { formatDate } from './utils/utils'; // Ajusta la ruta al archivo de utilidades
+import { FormBuilder, FormGroup } from '@angular/forms';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
+  form: FormGroup;
   constructor(
+    private fb: FormBuilder,
     private clientService: ClientService,
     private dialog: MatDialog
-  ) {}
+  ) {
+    this.form = this.fb.group({
+      sharedKey: [''],
+    });
+  }
   title = 'gml-front';
   clients: Client[] = [];
 
   ngOnInit() {
+    this.init();
+  }
+
+  update(client: Client) {
+    this.openDialog(client);
+  }
+
+  init() {
     this.clientService.getClients().subscribe({
       next: (clients) => {
         this.clients = clients;
@@ -28,10 +43,29 @@ export class AppComponent {
       complete: () => {},
     });
   }
-  update(client: Client) {
-    this.openDialog(client);
+  search() {
+    if (this.form.get('sharedKey')?.value != '') {
+      this.clientService
+        .getClientById(this.form.get('sharedKey')?.value)
+        .subscribe({
+          next: (client) => {
+            if (client) {
+              this.clients = [];
+              this.clients.push(client);
+            } else {
+              this.clients = [];
+            }
+          },
+          error: () => {},
+          complete: () => {},
+        });
+    } else {
+      this.init();
+    }
   }
-
+  formatDate(date: string) {
+    return formatDate(date);
+  }
   openDialog(client: Client): void {
     const dialogRef = this.dialog.open(UpdateComponentComponent, {
       width: '250px', // Tamaño del diálogo
@@ -39,6 +73,7 @@ export class AppComponent {
     });
 
     dialogRef.afterClosed().subscribe((result) => {
+      this.init();
       console.log('El diálogo se cerró');
     });
   }

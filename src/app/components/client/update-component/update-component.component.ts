@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Client } from 'src/app/client.interface';
 import { ClientService } from '../../../client.service';
+import { formatDate } from '../../../utils/utils'; // Ajusta la ruta al archivo de utilidades
 
 @Component({
   selector: 'app-update-component',
@@ -23,8 +24,9 @@ export class UpdateComponentComponent implements OnInit {
       businessId: [data.businessId, Validators.required],
       email: [data.email, [Validators.required, Validators.email]],
       phone: [data.phone, Validators.required],
-      dateAdded: [data.dateAdded, Validators.required],
+      dateAdded: [formatDate(data.dateAdded), Validators.required],
     });
+    console.log(this.clientForm.value)
   }
 
   ngOnInit(): void {}
@@ -38,7 +40,9 @@ export class UpdateComponentComponent implements OnInit {
         error: () => {
           alert('Ha fallado la actualización');
         },
-        complete: () => {},
+        complete: () => {
+          this.close();
+        },
       });
       this.dialogRef.close(this.clientForm.value);
     }

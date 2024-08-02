@@ -29,12 +29,22 @@
         </button>
       </div>
       <div class="row">
-        <!-- <form class="example-form">
-          <mat-form-field class="example-full-width">
-            <mat-label>First name</mat-label>
-            <input matInput placeholder="Enter shared key" />
-          </mat-form-field>
-        </form> -->
+        <div class="col">
+          <form [formGroup]="form">
+            <mat-form-field class="example-full-width">
+              <mat-label>First name</mat-label>
+              <input
+                matInput
+                placeholder="Enter shared key"
+                formControlName="sharedKey"
+              />
+            </mat-form-field>
+            <button mat-button (click)="search()">
+              <mat-icon>search</mat-icon>
+              Search
+            </button>
+          </form>
+        </div>
       </div>
 
       <h3>Clients</h3>
@@ -53,7 +63,7 @@
             <td>{{ client.businessId }}</td>
             <td>{{ client.email }}</td>
             <td>{{ client.phone }}</td>
-            <td>{{ client.dateAdded }}</td>
+            <td>{{ formatDate(client.dateAdded) }}</td>
             <td>
               <button mat-button (click)="update(client)">
                 <mat-icon>update</mat-icon>
