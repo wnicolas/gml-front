@@ -54,12 +54,14 @@
             <td>{{ client.email }}</td>
             <td>{{ client.phone }}</td>
             <td>{{ client.dateAdded }}</td>
-            <td>update</td>
+            <td>
+              <button mat-button (click)="update(client)">
+                <mat-icon>update</mat-icon>
+              </button>
+            </td>
           </tr>
         </tbody>
       </table>
-
-     
     </div>
   </div>
 </section>

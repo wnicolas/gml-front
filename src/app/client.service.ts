@@ -16,4 +16,7 @@ export class ClientService {
   getClients(): Observable<Client[]> {
     return this.http.get<Client[]>(this.apiUrl);
   }
+  updateClient(client: Client): Observable<Client> {
+    return this.http.put<Client>(`${this.apiUrl}/${client.sharedKey}`, client);
+  }
 }
