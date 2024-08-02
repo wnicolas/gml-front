@@ -1,0 +1,25 @@
+/* src/app/sidebar/sidebar.component.css */
+
+.sidenav-container {
+    height: 100%;
+  }
+  
+  mat-sidenav {
+    width: 250px;
+  }
+  
+  mat-sidenav-content {
+    padding: 20px;
+  }
+  
+  .logo-container {
+    text-align: center;
+    margin: 16px 0;
+  }
+  
+  .logo {
+    width: 100%;
+    max-width: 200px; /* Ajusta el tamaño del logo según sea necesario */
+    height: auto;
+  }
+  

@@ -11,11 +11,21 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
 
 import { UpdateComponentComponent } from './components/client/update-component/update-component.component';
 import { GenericSearchWithFilterComponent } from './utils/generic-search-with-filter/generic-search-with-filter.component';
+import { SidebarComponent } from './shared/sidebar/sidebar.component';
+import { MainLayoutComponent } from './components/main-layout/main-layout.component';
 @NgModule({
-  declarations: [AppComponent, UpdateComponentComponent, GenericSearchWithFilterComponent],
+  declarations: [
+    AppComponent,
+    UpdateComponentComponent,
+    GenericSearchWithFilterComponent,
+    SidebarComponent,
+    MainLayoutComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -28,7 +38,8 @@ import { GenericSearchWithFilterComponent } from './utils/generic-search-with-fi
     HttpClientModule,
     MatDialogModule,
     BrowserModule,
-
+    MatSidenavModule,
+    MatListModule,
     MatInputModule,
   ],
   providers: [],

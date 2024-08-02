@@ -1,0 +1,72 @@
+<div class="col">
+  <div class="row d-flex justify-content-start">
+    <div>
+      <button mat-button>
+        <mat-icon>add</mat-icon>
+        New
+      </button>
+    </div>
+    <div>
+      <button mat-button>
+        <mat-icon>export</mat-icon>
+        Export
+      </button>
+    </div>
+    <button mat-button>
+      <mat-icon>search</mat-icon>
+      Advanced Search
+    </button>
+  </div>
+  <div class="row">
+    <app-generic-search-with-filter
+      (cleanEmitter)="manageCleanEmitter($event)"
+      (searchedEmitter)="manageSearchedEmitter($event)"
+      [fields]="camposFiltro"
+      table="clients"
+    ></app-generic-search-with-filter>
+  </div>
+  <div class="row">
+    <div class="col">
+      <form [formGroup]="form">
+        <mat-form-field class="example-full-width">
+          <mat-label>First name</mat-label>
+          <input
+            matInput
+            placeholder="Enter shared key"
+            formControlName="sharedKey"
+          />
+        </mat-form-field>
+        <button mat-button (click)="search()">
+          <mat-icon>search</mat-icon>
+          Search
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <h3>Clients</h3>
+  <table class="table">
+    <thead>
+      <th>Shared Key</th>
+      <th>Bussiness ID</th>
+      <th>E-mail</th>
+      <th>Phone</th>
+      <th>Data Added</th>
+      <th>(update)</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let client of clients">
+        <td>{{ client.sharedKey }}</td>
+        <td>{{ client.businessId }}</td>
+        <td>{{ client.email }}</td>
+        <td>{{ client.phone }}</td>
+        <td>{{ formatDate(client.dateAdded) }}</td>
+        <td>
+          <button mat-button (click)="update(client)">
+            <mat-icon>update</mat-icon>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
