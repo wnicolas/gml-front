@@ -21,4 +21,8 @@ export class ClientService {
     console.log(client);
     return this.http.put<Client>(`${this.apiUrl}/${client.sharedKey}`, client);
   }
+  createClient(client: Client): Observable<Client> {
+    console.log(client);
+    return this.http.post<Client>(`${this.apiUrl}`, client);
+  }
 }

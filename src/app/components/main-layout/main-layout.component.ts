@@ -6,15 +6,14 @@ import { ClientService } from 'src/app/client.service';
 import { formatDate } from 'src/app/utils/utils';
 import { UpdateComponentComponent } from '../client/update-component/update-component.component';
 
-
 @Component({
   selector: 'app-main-layout',
   templateUrl: './main-layout.component.html',
-  styleUrls: ['./main-layout.component.css']
+  styleUrls: ['./main-layout.component.css'],
 })
 export class MainLayoutComponent implements OnInit {
   form: FormGroup;
-  advancedSearch:boolean=false;
+  advancedSearch: boolean = false;
   camposFiltro: any = [
     {
       name: 'sharedKey',
@@ -61,7 +60,7 @@ export class MainLayoutComponent implements OnInit {
     this.init();
   }
 
-  update(client: Client) {
+  update(client: Client | null) {
     this.openDialog(client);
   }
 
@@ -99,7 +98,7 @@ export class MainLayoutComponent implements OnInit {
   formatDate(date: string) {
     return formatDate(date);
   }
-  openDialog(client: Client): void {
+  openDialog(client: Client | null): void {
     const dialogRef = this.dialog.open(UpdateComponentComponent, {
       width: '250px', // Tamaño del diálogo
       data: client, // Puedes pasar datos al diálogo si lo necesitas
@@ -116,5 +115,4 @@ export class MainLayoutComponent implements OnInit {
   manageCleanEmitter(event: any) {
     this.init();
   }
-
 }
